@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZODYL-MORTEL — Système WhatsApp</title>
     <style>
-        /* Variables de design et thèmes de couleurs */
+         /* Variables de design et thèmes de couleurs */
         :root {
             --bg-color: #0a0a0c;
             --card-bg: rgba(18, 18, 24, 0.85);
@@ -32,123 +32,113 @@
         }
         #splash-screen.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
 
-        .splash-title-1 { font-size: 3rem; font-weight: 900; letter-spacing: 5px; text-shadow: 0 0 20px var(--accent-glow); margin-bottom: 10px; }
-        .splash-title-2 { font-size: 1.5rem; color: #ff3366; letter-spacing: 3px; font-weight: 600; text-transform: uppercase; margin-bottom: 40px; text-shadow: 0 0 15px rgba(255,51,102,0.4); }
+        .splash-title-1 { font-size: 2.5rem; font-weight: 900; letter-spacing: 5px; text-shadow: 0 0 20px var(--accent-glow); margin-bottom: 10px; }
+        .splash-title-2 { font-size: 1.2rem; color: #ff3366; letter-spacing: 2px; font-weight: 600; text-transform: uppercase; margin-bottom: 40px; text-shadow: 0 0 15px rgba(255,51,102,0.4); }
 
-        /* Bouton Système Zodyl avec effet pulsation de lumière */
         .btn-enter {
-            padding: 15px 40px; font-size: 1.2rem; font-weight: bold; color: #fff;
+            padding: 15px 40px; font-size: 1.1rem; font-weight: bold; color: #fff;
             background: transparent; border: 2px solid var(--primary-green); border-radius: 4px;
             cursor: pointer; text-transform: uppercase; letter-spacing: 2px;
             box-shadow: 0 0 15px var(--accent-glow); transition: all 0.3s ease;
-            position: relative; overflow: hidden;
         }
-        .btn-enter:hover { background: var(--primary-green); color: #000; box-shadow: 0 0 30px var(--primary-green); transform: scale(1.05); }
+        .btn-enter:hover { background: var(--primary-green); color: #000; box-shadow: 0 0 30px var(--primary-green); }
 
         /* ========================================================
            2. INTERFACE PRINCIPALE (ZODYL-MORTEL)
            ======================================================== */
         header {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 25px 7%; background: rgba(10, 10, 12, 0.9);
+            padding: 20px 5%; background: rgba(10, 10, 12, 0.9);
             border-bottom: 1px solid var(--border-glow); position: sticky; top: 0; z-index: 100;
         }
-        .logo { font-size: 1.8rem; font-weight: 800; letter-spacing: 2px; color: #fff; text-shadow: 0 0 10px rgba(255,255,255,0.3); }
+        .logo { font-size: 1.5rem; font-weight: 800; letter-spacing: 2px; color: #fff; }
         .logo span { color: var(--text-muted); font-weight: 300; }
-        nav a { color: var(--text-muted); text-decoration: none; margin-left: 25px; font-size: 0.95rem; transition: color 0.3s; }
+        nav a { color: var(--text-muted); text-decoration: none; margin-left: 15px; font-size: 0.9rem; }
         nav a:hover { color: #fff; }
-        .btn-connect { border: 1px solid #fff; padding: 8px 18px; border-radius: 4px; margin-left: 30px; font-weight: 600; }
+        .btn-connect { border: 1px solid #fff; padding: 6px 12px; border-radius: 4px; display: inline-block; }
 
+        /* Grille adaptative : Passe sur 1 seule colonne sur mobile automatiquement */
         .main-container {
-            display: grid; grid-template-columns: 1.1fr 0.9fr;
-            max-width: 1300px; margin: 60px auto; padding: 0 40px; gap: 50px; align-items: start;
+            display: grid; grid-template-columns: 1fr;
+            max-width: 1200px; margin: 30px auto; padding: 0 20px; gap: 30px;
         }
 
-        /* Colonne Gauche - Textes et Écritures automatiques */
-        .left-panel h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
+        .left-panel h1 { font-size: 2.2rem; font-weight: 800; line-height: 1.2; margin-bottom: 15px; text-align: center; }
         .typewriter-text { border-right: 3px solid var(--primary-green); white-space: normal; animation: blink-cursor 0.75s step-end infinite; }
-        .sub-text { font-size: 1.15rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 40px; min-height: 50px; }
+        .sub-text { font-size: 1rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 30px; text-align: center; }
 
-        /* Grille des caractéristiques */
-        .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .features-grid { display: grid; grid-template-columns: 1fr; gap: 15px; }
         .feature-card {
             background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-glow);
-            padding: 25px; border-radius: 8px; display: flex; align-items: flex-start; gap: 15px;
-            transition: transform 0.3s, border-color 0.3s;
+            padding: 20px; border-radius: 8px; display: flex; align-items: flex-start; gap: 15px;
         }
-        .feature-card:hover { transform: translateY(-5px); border-color: rgba(255,255,255,0.15); background: rgba(255,255,255,0.03); }
-        .feature-icon { font-size: 1.5rem; color: var(--text-main); line-height: 1; }
-        .feature-card h3 { font-size: 1.1rem; margin-bottom: 5px; font-weight: 600; }
-        .feature-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; }
+        .feature-icon { font-size: 1.3rem; color: var(--text-main); }
+        .feature-card h3 { font-size: 1rem; margin-bottom: 5px; }
+        .feature-card p { font-size: 0.85rem; color: var(--text-muted); }
 
-        /* Colonne Droite - Formulaire Lab */
+        /* Ajustement complet du Formulaire sur Mobile */
         .form-box {
             background: var(--card-bg); border: 1px solid var(--border-glow);
-            padding: 40px; border-radius: 12px; backdrop-filter: blur(10px);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255,255,255,0.05);
-            position: relative;
+            padding: 25px; border-radius: 12px; backdrop-filter: blur(10px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
         }
-        .form-box::before {
-            content: ''; position: absolute; top: -1px; left: 10%; right: 10%; height: 1px;
-            background: linear-gradient(90deg, transparent, var(--primary-green), transparent);
-        }
-        .form-box h2 { font-size: 1.8rem; margin-bottom: 5px; font-weight: 700; }
-        .form-box .form-subtitle { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 30px; }
+        .form-box h2 { font-size: 1.6rem; margin-bottom: 5px; text-align: center; }
+        .form-box .form-subtitle { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 25px; text-align: center; }
 
-        .input-group { margin-bottom: 20px; text-align: left; }
+        .input-group { margin-bottom: 20px; }
         .input-group label { display: block; font-size: 0.85rem; color: #fff; font-weight: 600; margin-bottom: 8px; }
         .input-group input, .phone-wrapper select {
-            width: 100%; padding: 12px 16px; background: rgba(0, 0, 0, 0.4);
+            width: 100%; padding: 12px; background: rgba(0, 0, 0, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 6px;
-            color: #fff; font-size: 0.95rem; transition: border-color 0.3s, box-shadow 0.3s;
+            color: #fff; font-size: 0.95rem;
         }
         .input-group input:focus, .phone-wrapper select:focus {
             outline: none; border-color: var(--primary-green); box-shadow: 0 0 10px rgba(0, 230, 118, 0.15);
         }
 
-        /* Numéro WhatsApp en ligne double colonne */
         .phone-wrapper { display: flex; gap: 10px; }
-        .phone-wrapper select { width: 30%; font-weight: bold; }
-        .phone-wrapper input { width: 70%; }
+        .phone-wrapper select { width: 35%; }
+        .phone-wrapper input { width: 65%; }
 
-        /* Groupe OTP Spécifique */
-        .otp-wrapper { display: flex; gap: 10px; }
-        .otp-wrapper input { width: 65%; text-align: center; font-weight: bold; letter-spacing: 2px; }
+        /* Correction de l'alignement pour éviter le chevauchement sur les petits écrans */
+        .otp-wrapper { display: flex; flex-direction: column; gap: 10px; }
+        .otp-wrapper input { width: 100%; text-align: center; font-weight: bold; letter-spacing: 1px; }
         .btn-otp {
-            width: 35%; background: #ffffff; color: #000; border: none;
-            border-radius: 6px; font-weight: bold; font-size: 0.85rem; cursor: pointer;
-            transition: opacity 0.2s;
+            width: 100%; padding: 12px; background: #ffffff; color: #000; border: none;
+            border-radius: 6px; font-weight: bold; font-size: 0.9rem; cursor: pointer;
         }
-        .btn-otp:hover { opacity: 0.9; }
 
-        .checkbox-group { display: flex; align-items: flex-start; gap: 10px; margin: 25px 0; font-size: 0.8rem; color: var(--text-muted); line-height: 1.4; text-align: left; }
-        .checkbox-group input { margin-top: 2px; cursor: pointer; }
+        .checkbox-group { display: flex; align-items: flex-start; gap: 10px; margin: 20px 0; font-size: 0.8rem; color: var(--text-muted); }
+        .btn-submit { width: 100%; padding: 14px; background: #ffffff; color: #000; border: none; border-radius: 6px; font-size: 1rem; font-weight: bold; cursor: pointer; }
 
-        .btn-submit {
-            width: 100%; padding: 14px; background: #ffffff; color: #000000;
-            border: none; border-radius: 6px; font-size: 1rem; font-weight: bold;
-            cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 10px;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(255,255,255,0.15); }
-
-        /* Animation de Statut */
-        .status-container { margin-top: 35px; text-align: center; font-size: 0.85rem; color: var(--text-muted); }
-        .status-badge { display: inline-flex; align-items: center; gap: 8px; color: var(--primary-green); font-weight: 600; margin-bottom: 8px; }
+        .status-container { margin-top: 25px; text-align: center; font-size: 0.85rem; color: var(--text-muted); }
+        .status-badge { display: inline-flex; align-items: center; gap: 8px; color: var(--primary-green); font-weight: 600; }
         .pulse-dot { width: 8px; height: 8px; background: var(--primary-green); border-radius: 50%; animation: pulse-green 1.5s infinite; }
 
-        /* Footer de la maquette */
-        footer { margin-top: 100px; padding: 40px 20px; border-top: 1px solid var(--border-glow); text-align: center; font-size: 0.8rem; color: var(--text-muted); }
-        footer p { margin-bottom: 10px; }
-        footer a { color: var(--text-muted); text-decoration: none; margin: 0 10px; }
-        footer a:hover { color: #fff; }
-        .signature { margin-top: 20px; font-weight: bold; letter-spacing: 2px; color: #fff; font-size: 0.9rem; text-shadow: 0 0 10px rgba(255,255,255,0.2); }
+        footer { margin-top: 60px; padding: 30px 20px; border-top: 1px solid var(--border-glow); text-align: center; font-size: 0.8rem; color: var(--text-muted); }
+        .signature { margin-top: 15px; font-weight: bold; letter-spacing: 2px; color: #fff; }
 
-        /* ========================================================
-           3. ANIMATIONS KEYFRAMES CSS
-           ======================================================== */
+        /* Configuration pour les écrans PC et Tablettes : On remet sur 2 colonnes propres */
+        @media (min-width: 768px) {
+            .splash-title-1 { font-size: 3rem; }
+            .splash-title-2 { font-size: 1.5rem; }
+            header { padding: 25px 7%; }
+            .logo { font-size: 1.8rem; }
+            nav a { margin-left: 25px; font-size: 0.95rem; }
+            .main-container { grid-template-columns: 1.1fr 0.9fr; padding: 0 40px; margin: 60px auto; gap: 50px; }
+            .left-panel h1 { font-size: 3.5rem; text-align: left; }
+            .sub-text { font-size: 1.15rem; text-align: left; }
+            .features-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+            .form-box h2 { text-align: left; }
+            .form-box .form-subtitle { text-align: left; }
+            .otp-wrapper { flex-direction: row; }
+            .otp-wrapper input { width: 65%; }
+            .btn-otp { width: 35%; font-size: 0.85rem; }
+        }
+
         @keyframes blink-cursor { from, to { border-color: transparent } 50% { border-color: var(--primary-green); } }
         @keyframes pulse-green { 0% { box-shadow: 0 0 0 0 rgba(0, 230, 118, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(0, 230, 118, 0); } 100% { box-shadow: 0 0 0 0 rgba(0, 230, 118, 0); } }
+            
     </style>
 </head>
 <body>
