@@ -157,21 +157,38 @@
     <div id="splash-screen">
         <div class="splash-title-1">BAJI D JAP</div>
         <div class="splash-title-2">L’ANGE SANS TÊTE…LE PÊCHER DE L’AVARICE</div>
-        <button class="btn-enter" onclick="entrerDansLeSysteme()">SYSTÈME ZODYL</button>
-    </div>
+        <button onclick="entrerDansLeSysteme()">SYSTÈME ZODYL</button>
+   </div>
 
-    <!-- 2. SITE INTERFACE PRINCIPALE -->
-    <header>
-        <div class="logo">ZODYL<span>-MORTEL</span></div>
-        <nav>
-            <a href="#">Accueil</a>
-            <a href="#">Fonctionnalités</a>
-            <a href="#">Sécurité</a>
-            <a href="#">Aide</a>
-            <a href="#" class="btn-connect">Se connecter</a>
-        </nav>
-    </header>
+   <!-- 2. SITE INTERFACE PRINCIPALE -->
+   <div id="main-interface" style="display:none;">
 
-    <main class="main-container">
+<header>
+  <div class="logo">ZODYL<span>-MORTEL</span></div>
+  <nav>
+    <a href="#">Accueil</a>
+    <a href="#">Fonctionnalités</a>
+    <a href="#">Sécurité</a>
+    <a href="#">Aide</a>
+    <a href="#" class="btn-connect">Se connecter</a>
+  </nav>
+</header>
 
+<main class="main-container">
+  ... tout le reste de ton site ...
+
+</main>
+
+</div> <!-- TU FERMES ICI ton main-interface -->
+<script>
+function entrerDansLeSysteme() {
+  const splash = document.getElementById('splash-screen');
+  if (splash) splash.style.display = 'none';
+  const main = document.getElementById('main-interface');
+  if (main) main.style.display = 'block';
+  window.scrollTo(0, 0);
+}
+</script>
+</body>
+</html>
 
