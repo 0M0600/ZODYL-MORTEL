@@ -79,6 +79,16 @@ app.post('/api/demander-code', async (req, res) => {
 });
 
 // Port d'écoute local du serveur
+// INDIQUE AU SERVEUR D'AFFICHER VOTRE FICHIER HTML SUR LE LIEN RENDER
+const path = require('path');
+
+// Permet au serveur de charger vos images et styles présents dans le dossier
+app.use(express.static(__dirname));
+
+// Si quelqu'un visite la racine du lien ( / ), le serveur lui envoie votre index.html
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
 const PORT = 3000;
 app.listen(PORT, () => {
     console.log(`=======================================================`);
