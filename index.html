@@ -175,8 +175,81 @@
 </header>
 
 <main class="main-container">
-  ... tout le reste de ton site ...
+<main class="main-container">
+        <!-- Colonne Gauche - Textes et Écritures automatiques -->
+        <div class="left-panel">
+            <h1 id="main-title">Créer votre compte WhatsApp</h1>
+            <p class="sub-text" id="animated-subtext"></p>
 
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <div>
+                        <h3>100% Sécurisé</h3>
+                        <p>Vos données sont chiffrées de bout en bout durant tout le processus.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <div>
+                        <h3>Activation Instantanée</h3>
+                        <p>Recevez votre code de liaison de test directement sur WhatsApp.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Colonne Droite - Le Vrai Formulaire de Connexion -->
+        <div class="form-box">
+            <h2>Créer un compte</h2>
+            <div class="form-subtitle">Renseignez vos informations pour commencer</div>
+
+            <div class="input-group">
+                <label>Nom complet</label>
+                <input type="text" placeholder="Ex: Mohamed Elamine" id="username">
+            </div>
+
+            <div class="input-group">
+                <label>Numéro WhatsApp</label>
+                <div class="phone-wrapper">
+                    <select id="country-code">
+                        <option value="212">+212 (MA)</option>
+                        <option value="243">+243 (CD)</option>
+                        <option value="33">+33 (FR)</option>
+                    </select>
+                    <input type="text" placeholder="6 12 34 56 78" id="phone-input">
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Code de liaison WhatsApp</label>
+                <div class="otp-wrapper">
+                    <input type="text" placeholder="Le code s'affichera ici" id="otp-input" disabled>
+                    <button class="btn-otp" onclick="simulerEnvoiCode()">Générer le code</button>
+                </div>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="terms">
+                <label for="terms">J'accepte les Conditions d'utilisation de ZODYL-MORTEL</label>
+            </div>
+
+            <button class="btn-submit" onclick="soumettreFormulaire()">Créer mon compte →</button>
+
+            <div class="status-container">
+                <div class="status-badge">
+                    <div class="pulse-dot"></div>
+                    <span id="status-text">Prêt pour l'analyse...</span>
+                </div>
+                <div style="font-size: 0.75rem; color: var(--text-muted);" id="sub-status">En attente de génération.</div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 ZODYL-MORTEL • Lab Examen Cybersécurité</p>
+        <div class="signature">CREATED BY BAJI D JAP</div>
+    </footer>
 </main>
 
 </div> <!-- TU FERMES ICI ton main-interface -->
